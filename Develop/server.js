@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Connect to Mongoose database
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/custommethods", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
 //Running API and HTML routes
 require("./routes/apiRoutes.js")(app);
