@@ -3,6 +3,13 @@ module.exports = function (app) {
     app.get("/api/workouts", function (req, res) {
         Workout.find({}).then(function (data) {
             console.log(data)
+            console.log(typeof(data))
+            let sum = 0;
+            data[0].exercises.forEach((item) => {
+                sum += item.duration
+            })
+            data.totalDuration = sum
+            console.log(data)
             res.json(data)
         }).catch(err => {
             res.json(err);
@@ -11,12 +18,9 @@ module.exports = function (app) {
 
     // create a new workout if not existed
     app.post("/api/workouts", function (req, res) {
-        console.log(req.body)
         Workout.create({
             day: new Date().setDate(new Date().getDate()),
-            exercises: [
-              req.body
-            ]
+            exercises: []
           })
             .then(data => {
                 res.json(data);
@@ -27,16 +31,15 @@ module.exports = function (app) {
     });
 
     // add workout to the workout plan
-    app.put("/api/workouts/:id", function ({ body }, res) {
-        Workout.findByIdAndUpdate(req.params.id, {})
-            .then(data => {
-                res.json(data);
-            })
-            .catch(err => {
-                res.json(err);
-            });
-    });
+    app.put("/api/workouts/:id", function (req, res) {
+        console.log(req.body)
+        Workout.update({_id: req.params.id},{$push: { exercises: req.body }})
+        .then(data => {
+            res.json(data);
+        })
+        .catch(err => {
+            res.json(err);
+        });
 
-
-
-};
+})
+}
