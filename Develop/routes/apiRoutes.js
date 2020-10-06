@@ -1,8 +1,17 @@
 const Workout = require("../models/userModel");
 module.exports = function (app) {
+    app.get("/api/workouts/range", function (req, res) {
+        Workout.aggregate([{ $match: {}}]).then(function (data) {
+            console.log(data)
+            res.json(data)
+        }).catch(err => {
+            res.json(err);
+        });
+    });
+    
     app.get("/api/workouts", function (req, res) {
         Workout.find({}).then(function (data) {
-            console.log(data)
+            console.log(data[0].toObject())
             console.log(typeof(data))
             let sum = 0;
             data[0].exercises.forEach((item) => {
