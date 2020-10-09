@@ -1,6 +1,7 @@
 # fitness-tracker
 This is a simple fitness tracking application that lets you record your workout based on resistance or cardio and display charts that computed all your workout data together.
-https://img.shields.io/github/forks/ethanlam93/fitness-tracker
+
+(https://img.shields.io/github/forks/ethanlam93/fitness-tracker)
 
 ## User Story
 
