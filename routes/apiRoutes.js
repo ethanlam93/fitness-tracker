@@ -1,7 +1,7 @@
 const Workout = require("../models/userModel");
 module.exports = function (app) {
     app.get("/api/workouts/range", function (req, res) {
-        Workout.aggregate([{ $match: {}}]).then(function (data) {
+        Workout.find({}).then(function (data) {
             console.log(data)
             res.json(data)
         }).catch(err => {
