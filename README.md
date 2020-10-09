@@ -1,5 +1,5 @@
 # fitness-tracker
-This is a simple fitness tracking application that lets you record your workout
+This is a simple fitness tracking application that lets you record your workout based on resistance or cardio and display charts that computed all your workout data together.
 
 ## User Story
 
@@ -20,3 +20,17 @@ The user should be able to:
   * Add new exercises to a new workout plan.
 
   * View the combined weight of multiple exercises on the `stats` page.
+
+## Installation
+
+No need for installation, just navigate to the application and use it
+
+## Deployment
+
+https://fitness-tracker-gt.herokuapp.com/?id=5f80ab8487a1ea00175b50ba
+
+## Credits
+The front end code of this application is provided by the Georgia Tech Part-time Flex Bootcamp Program through Trilogy Education
+
+## Screenshots
+
